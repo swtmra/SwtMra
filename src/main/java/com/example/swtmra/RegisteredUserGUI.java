@@ -11,12 +11,7 @@ public class RegisteredUserGUI extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setAttribute("uname", request.getParameter("uname"));
-        request.getRequestDispatcher("RegisteredUserWebPage.ftl").forward(request, response);
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("RegisteredUserWebpage.jsp").forward(request, response);
 
     }
 }
