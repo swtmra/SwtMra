@@ -3,10 +3,9 @@ package application;
 import dbadapter.Configuration;
 import dbadapter.MovieDatabase;
 import datatypes.User;
+import dbadapter.UDB_Adapter;
 import interfaces.PCmds;
 import interfaces.RUCmds;
-
-import java.sql.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class MRA_Application implements PCmds, RUCmds {
 
     @Override
     public void registerUser(String email, int age, String username) {
-
+        new UDB_Adapter().registeringUser(email,username,age);
     }
 
     @Override

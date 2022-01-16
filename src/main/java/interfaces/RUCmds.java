@@ -13,4 +13,5 @@ public interface RUCmds {
 
     //TODO can we use the MovieDatabase as Datatype here or should we use Movie
     List<MovieDatabase> forwardBrowseMovies();
+
 }

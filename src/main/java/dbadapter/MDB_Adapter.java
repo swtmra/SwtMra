@@ -36,6 +36,7 @@ public class MDB_Adapter implements IMovieDatabase {
         return true;
     }
 
+    @Override
     public boolean movieExists(String title, int actor_id, int director_id, Date publishing_date) {
         String query =
                 "select * from movies where title = ? and actor_id = ? and director_id = ? and publishing_date = ?";
