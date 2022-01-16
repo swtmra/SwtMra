@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet()
+@WebServlet(urlPatterns = {"/register"}, name="registerServlet")
 public class PersonGUI extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
