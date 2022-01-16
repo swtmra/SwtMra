@@ -6,8 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @WebServlet(urlPatterns = {"/registerUserWebpage"}, name="registerServlet")
 public class PersonGUI extends HttpServlet {
