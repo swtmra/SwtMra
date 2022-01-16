@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 
-@WebServlet(urlPatterns = {"/AddMovieWebPage"}, name = "addMovieServlet")
+@WebServlet(urlPatterns = {"/AddMovieWebpage"}, name = "addMovieServlet")
     public class AddMovie extends HttpServlet {
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ import java.io.IOException;
             }
 
 
-                request.setAttribute("uname", request.getParameter("uname"));
+            request.setAttribute("uname", request.getParameter("uname"));
             request.getRequestDispatcher("AddMovieWebpage.jsp").forward(request, response);
 
         }
