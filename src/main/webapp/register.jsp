@@ -20,12 +20,12 @@
 
 <h1>Registration</h1>
 
-<form action="registeredUserWebPage">
+<form action="registerUserWebpage">
 
     <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
+        <b>username</b> : <input type="text" name="uname"><br>
+        <b>age : </b><input type="number" name="age"><br>
+        <b>email : </b><input type="text" name="email"><br>
     </div>
 
 
