@@ -19,13 +19,15 @@
 
 <h1>Registration</h1>
 
-<form action="AddMovieWebpage?action=AddMovie">
+<form action="AddMovieWebpage">
 
     <div id="fields">
         <b>Title</b> : <input type="text"><br>
         <b>Director : </b><input type="text"><br>
         <b>Actors : </b><input type="text"><br>
+        <input type="hidden" name="action" value="AddMovie"><br>
         <b>Publishing Date : </b><input type="Date"><br>
+
     </div>
 
 
