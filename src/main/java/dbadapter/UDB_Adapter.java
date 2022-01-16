@@ -52,9 +52,11 @@ public class UDB_Adapter implements IUserDatabase {
 
             } catch (SQLException e) {
                 e.printStackTrace();
+                return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return true;
         }
         return false;
     }
