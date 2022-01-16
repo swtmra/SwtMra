@@ -8,13 +8,13 @@ public class MovieDatabase {
     private String actors;
     private String director;
     private double avgRating;
-    private Date publishingDate;
+    private String publishingDate;
 
     public MovieDatabase() {
 
     }
 
-    public MovieDatabase(int id, String title, String director, String actors, double avgRating, Date publishingDate) {
+    public MovieDatabase(int id, String title, String director, String actors, double avgRating, String publishingDate) {
         this.id = id;
         this.title = title;
         this.actors = actors;
@@ -63,11 +63,11 @@ public class MovieDatabase {
         this.avgRating = avgRating;
     }
 
-    public Date getPublishingDate() {
+    public String getPublishingDate() {
         return publishingDate;
     }
 
-    public void setPublishingDate(Date publishingDate) {
+    public void setPublishingDate(String publishingDate) {
         this.publishingDate = publishingDate;
     }
 }

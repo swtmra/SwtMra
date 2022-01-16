@@ -72,6 +72,8 @@ public class MDB_Adapter implements IMovieDatabase {
     public List<MovieDatabase> get_Movies() throws SQLException, ClassNotFoundException {
         //SQL statements
         String sqlGetMovies = "SELECT * FROM moviesdatabase ORDER BY avgRating DESC";
+        List<MovieDatabase> movies = new ArrayList<>();
+
         Class.forName("com.mysql.cj.jdbc.Driver");
         //Perform database Query
         try (Connection connection = DriverManager.getConnection("jdbc:" + Configuration.getType()
@@ -80,17 +82,15 @@ public class MDB_Adapter implements IMovieDatabase {
                 Configuration.getUser(), Configuration.getPassword())) {
             try (PreparedStatement st = connection.prepareStatement(sqlGetMovies)) {
                 ResultSet rsMovies = st.executeQuery();
-                List<MovieDatabase> movies = new ArrayList<MovieDatabase>();
                 while (rsMovies.next()) {
-                    MovieDatabase movie = new MovieDatabase(rsMovies.getInt("id"), rsMovies.getString("title"), rsMovies.getString("director"), rsMovies.getString("actors"), rsMovies.getDouble("avgRating"), rsMovies.getDate("publishingDate"));
+                    MovieDatabase movie = new MovieDatabase(rsMovies.getInt("id"), rsMovies.getString("title"), rsMovies.getString("director"), rsMovies.getString("actors"), rsMovies.getDouble("avgRating"), rsMovies.getString("publishingDate"));
                     movies.add(movie);
-                    return movies;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return null;
+        return movies;
     }
 
     @Override
