@@ -32,13 +32,6 @@ public class PersonGUI extends HttpServlet {
             request.setAttribute("uname", username);
             request.setAttribute("email", email);
 
-            boolean usernameExists = new MRA_Application().usernameExists(username);
-            if (usernameExists){
-                errors.add("Username is already used");
-            }
-            if(age < 18) {
-                errors.add("You have to be 18 years old or older to register");
-            }
 
             if(errors.isEmpty()) {
                 new MRA_Application().registerUser(email, age, username);
