@@ -12,7 +12,7 @@ public class MDB_Adapter implements IMovieDatabase {
     @Override
     public boolean addingMovie(String title, String director, String actors, String publishingDate) {
         String query =
-                "insert into movies(title, director, actors, avgRating, publishingDate) values(?,?,?,?,?)";
+                "insert into moviesdatabase(title, director, actors, avgRating, publishingDate) values(?,?,?,?,?)";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"

@@ -11,17 +11,15 @@ import java.util.List;
 public class MRA_Application implements PCmds, RUCmds {
 
     @Override
-    public boolean registerUser(String email, int age, String username) {
+    public boolean registerUser(String email, int age, String username) throws ClassNotFoundException {
         boolean usernameExists = new UDB_Adapter().usernameExists(username);
-        if (age < 18 && usernameExists) {
+        if (age < 18 || usernameExists) {
             return false;
         } else {
             new UDB_Adapter().registeringUser(email,username,age);
             return true;
         }
     }
-
-
     @Override
     public boolean forwardAddMovie(String title, String director, String actor, String publishingDate) {
         boolean movieExists = new MDB_Adapter().movieExists( title, director, publishingDate);

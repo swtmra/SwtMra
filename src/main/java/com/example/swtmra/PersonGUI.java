@@ -27,8 +27,13 @@ public class PersonGUI extends HttpServlet {
             request.setAttribute("email", email);
 
 
-            boolean registerationStatus = new MRA_Application().registerUser(email, age, username);
-            if (registerationStatus) {
+        boolean registerationStatus = false;
+        try {
+            registerationStatus = new MRA_Application().registerUser(email, age, username);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (registerationStatus) {
                 request.setAttribute("var","Registration success");
                 request.getRequestDispatcher("showConfirmed.jsp").forward(request, response);
             } else {

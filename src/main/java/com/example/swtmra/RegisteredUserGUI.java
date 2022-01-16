@@ -5,16 +5,10 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/registeredUserWebPage"}, name = "regisetredServlet")
+@WebServlet(urlPatterns = {"/registeredUserWebpage"}, name = "regisetredServlet")
 public class RegisteredUserGUI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        if(request.getParameter("action").equals("AddMovie")){
-            request.getRequestDispatcher("AddMovieWebpage.ftl");
-        }
-
 
         request.setAttribute("uname", request.getParameter("uname"));
         request.getRequestDispatcher("RegisteredUserWebPage.ftl").forward(request, response);
