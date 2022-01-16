@@ -22,7 +22,13 @@ import java.io.IOException;
                 String director = request.getParameter("director");
                 String actors = request.getParameter("actors");
                 String publishingDate = request.getParameter("publishingDate");
-                boolean add_res = new MRA_Application().forwardAddMovie(title, director, actors, publishingDate);
+
+                boolean add_res = false;
+                try {
+                    add_res = new MRA_Application().forwardAddMovie(title, director, actors, publishingDate);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
                 if (add_res) {
                     request.setAttribute("var", "The Movie was added !");
                     request.getRequestDispatcher("showConfirmed.jsp").forward(request, response);

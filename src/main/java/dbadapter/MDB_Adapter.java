@@ -39,9 +39,10 @@ public class MDB_Adapter implements IMovieDatabase {
     }
 
     @Override
-    public boolean movieExists(String title, String director, String publishingDate) {
+    public boolean movieExists(String title, String director, String publishingDate) throws ClassNotFoundException {
         String query =
-                "select * from movies where title = ? and director = ? and publishingDate = ?";
+                "select * from moviesdatabase where title = ? and director = ? and publishingDate = ?";
+        Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -68,10 +69,10 @@ public class MDB_Adapter implements IMovieDatabase {
     }
 
 
-    public List<MovieDatabase> get_Movies() throws SQLException {
+    public List<MovieDatabase> get_Movies() throws SQLException, ClassNotFoundException {
         //SQL statements
-        String sqlGetMovies = "SELECT * FROM MoviesDatabase ORDER BY avgRating DESC";
-
+        String sqlGetMovies = "SELECT * FROM moviesdatabase ORDER BY avgRating DESC";
+        Class.forName("com.mysql.cj.jdbc.Driver");
         //Perform database Query
         try (Connection connection = DriverManager.getConnection("jdbc:" + Configuration.getType()
                         + "://" + Configuration.getServer() + ":"

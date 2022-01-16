@@ -22,11 +22,11 @@
 <form action="AddMovieWebpage">
 
     <div id="fields">
-        <b>Title</b> : <input type="text"><br>
-        <b>Director : </b><input type="text"><br>
-        <b>Actors : </b><input type="text"><br>
-        <b>Publishing Date : </b><input type="Date"><br>
-        <input name = "action" type="hidden" value="AddMovie"><br>
+        <b>Title</b> : <input type="text" name="title"><br>
+        <b>Director : </b><input type="text" name="director"><br>
+        <b>Actors : </b><input type="text" name="actors"><br>
+        <b>Publishing Date : </b><input type="Date" name="publishingDate"><br>
+        <input name = "action" type="hidden" value="AddMovie" ><br>
     </div>
 
 

@@ -21,7 +21,7 @@ public class MRA_Application implements PCmds, RUCmds {
         }
     }
     @Override
-    public boolean forwardAddMovie(String title, String director, String actor, String publishingDate) {
+    public boolean forwardAddMovie(String title, String director, String actor, String publishingDate) throws ClassNotFoundException {
         boolean movieExists = new MDB_Adapter().movieExists( title, director, publishingDate);
         if(!movieExists){
             new MDB_Adapter().addingMovie(title, actor, director, publishingDate);

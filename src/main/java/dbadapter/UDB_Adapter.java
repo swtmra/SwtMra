@@ -6,9 +6,10 @@ import java.sql.*;
 
 public class UDB_Adapter implements IUserDatabase {
     @Override
-    public boolean registeringUser(String email, String username, int age) {
+    public boolean registeringUser(String email, String username, int age) throws ClassNotFoundException {
         String query =
                 "insert into usersdatabase(email, username, age) values(?,?,?)";
+        Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -35,7 +36,7 @@ public class UDB_Adapter implements IUserDatabase {
     public boolean usernameExists(String username) throws ClassNotFoundException {
         String query =
                 "select * from usersdatabase where username = ?";
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
