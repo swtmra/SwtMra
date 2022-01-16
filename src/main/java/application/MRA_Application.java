@@ -28,7 +28,7 @@ public class MRA_Application implements PCmds, RUCmds {
     }
 
     @Override
-    public boolean movieExists(String title, int actor_id, int director_id, Date publishing_date) {
+    public boolean movieExists(String title, String actor, String director, Date publishing_date) {
         return false;
     }
 
