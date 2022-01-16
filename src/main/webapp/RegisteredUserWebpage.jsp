@@ -18,7 +18,7 @@
             <button id="browse_btn" type="submit">Browse Movies</button>
         </a>
 
-        <a href="/AddMovieWebpage?uname=${uname}&age=${age}&email=${email}">
+        <a href="/AddMovieWebpage?uname=${uname}&age=${age}&email=${email}&action=nothing">
             <button id="add_btn" type="submit">Add Movie</button>
         </a>
 
