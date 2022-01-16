@@ -6,6 +6,8 @@ import datatypes.User;
 import dbadapter.UDB_Adapter;
 import interfaces.PCmds;
 import interfaces.RUCmds;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public class MRA_Application implements PCmds, RUCmds {
@@ -42,7 +44,7 @@ public class MRA_Application implements PCmds, RUCmds {
 
     //TODO can we use the MovieDatabase as Datatype here or should we use Movie
     @Override
-    public List<MovieDatabase> forwardBrowseMovies() {
-        return null;
+    public List<MovieDatabase> forwardBrowseMovies() throws SQLException, ClassNotFoundException {
+        return new MDB_Adapter().get_Movies();
     }
 }

@@ -2,6 +2,8 @@ package interfaces;
 
 import dbadapter.MovieDatabase;
 import datatypes.User;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface RUCmds {
@@ -10,6 +12,6 @@ public interface RUCmds {
     boolean userRatingExists(int movieID, String username);
 
     //TODO can we use the MovieDatabase as Datatype here or should we use Movie
-    List<MovieDatabase> forwardBrowseMovies();
+    List<MovieDatabase> forwardBrowseMovies() throws SQLException, ClassNotFoundException;
 
 }
