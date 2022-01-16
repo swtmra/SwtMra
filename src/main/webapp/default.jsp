@@ -5,26 +5,30 @@
 <body>
 <h1>Welcome to the Movie Rating App</h1>
 
-</head>
-
-<h2>Registration</h2>
-
-<form action="registerUserWebpage">
-
-    <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
-    </div>
 
 
-    <button id="submit_btn" type="submit">Register</button>
-</form>
+<div>
+    <a href="register.jsp">
+        <button id="reg_btn" type="submit">
+            <b>Register</b>
+        </button>
+    </a>
+</div>
+
+
+
+
+<div >
+    <a href="MoviesOverviewWebPage.jsp">
+        <button id="browse_btn" type="submit">
+            <b>Browse Movies</b>
+        </button>
+    </a>
+</div>
+
 
 
 
 </body>
 
-
-
-
+</head>
