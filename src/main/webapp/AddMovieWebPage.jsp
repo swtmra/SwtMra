@@ -2,34 +2,34 @@
 <html>
 <head>
 
-    <title>Registration</title>
+    <title>Adding Movie</title>
     <style>
         #fields{
             color:grey;
         }
-//o
+
         #submit_btn{
             color:green;
         }
     </style>
 
-//test mahmozilla püsh 2
 </head>
 
 <body>
 
 <h1>Registration</h1>
 
-<form action="Register?registerUser">
+<form action="AddMovieWebpage?action=AddMovie">
 
     <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
+        <b>Title</b> : <input type="text"><br>
+        <b>Director : </b><input type="text"><br>
+        <b>Actors : </b><input type="text"><br>
+        <b>Publishing Date : </b><input type="Date"><br>
     </div>
 
 
-    <button id="submit_btn" type="submit">Submit</button>
+    <button id="add_btn" type="submit">Add</button>
 </form>
 
 </body>

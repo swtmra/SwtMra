@@ -2,12 +2,10 @@ package interfaces;
 
 import dbadapter.MovieDatabase;
 import datatypes.User;
-import java.sql.Date;
 import java.util.List;
 
 public interface RUCmds {
-    boolean forwardAddMovie(String title, String director, String actor, Date publishingDate);
-    boolean movieExists(String title, String actor, String director, Date publishing_date);
+    boolean forwardAddMovie(String title, String director, String actor, String publishingDate);
     boolean forwardRateMovie(User user, int movieID, int ratingsValue, String optMsg);
     boolean userRatingExists(int movieID, String username);
 
