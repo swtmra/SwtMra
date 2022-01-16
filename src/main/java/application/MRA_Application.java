@@ -16,7 +16,6 @@ public class MRA_Application implements PCmds, RUCmds {
     @Override
     public boolean registerUser(String email, int age, String username) {
         boolean usernameExists = new MRA_Application().usernameExists(username);
-
         if (age < 18 && usernameExists) {
             return false;
         } else {

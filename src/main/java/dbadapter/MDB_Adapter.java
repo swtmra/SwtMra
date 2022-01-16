@@ -1,10 +1,13 @@
 package dbadapter;
 
+import datatypes.Movie;
 import interfaces.IMovieDatabase;
 
 
 import java.sql.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MDB_Adapter implements IMovieDatabase {
 
@@ -63,6 +66,31 @@ public class MDB_Adapter implements IMovieDatabase {
             e.printStackTrace();
         }
         return false;
+    }
+
+
+    public List<MovieDatabase> get_Movies() throws SQLException {
+        //SQL statements
+        String sqlGetMovies = "SELECT * FROM MoviesDatabase ORDER BY avgRating DESC";
+
+        //Perform database Query
+        try (Connection connection = DriverManager.getConnection("jdbc:" + Configuration.getType()
+                        + "://" + Configuration.getServer() + ":"
+                        + Configuration.getPort() + "/" + Configuration.getDatabase(),
+                Configuration.getUser(), Configuration.getPassword())) {
+            try (PreparedStatement st = connection.prepareStatement(sqlGetMovies)) {
+                ResultSet rsMovies = st.executeQuery();
+                List<MovieDatabase> movies = new ArrayList<MovieDatabase>();
+                while (rsMovies.next()) {
+                    MovieDatabase movie = new MovieDatabase(rsMovies.getInt("id"), rsMovies.getString("title"), rsMovies.getString("director"), rsMovies.getString("actors"), rsMovies.getDouble("avgRating"), rsMovies.getDate("publishingDate"));
+                    movies.add(movie);
+                    return movies;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     @Override
