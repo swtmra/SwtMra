@@ -8,7 +8,6 @@ public class User {
     private String email;
     private String username;
     private int age;
-    //TODO can we use the MovieDatabase as Datatype here or should we use Movie
     private List<MovieDatabase> movieList;
 
     public User() {

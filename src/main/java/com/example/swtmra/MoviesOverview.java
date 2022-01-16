@@ -1,8 +1,6 @@
 package com.example.swtmra;
-
 import application.MRA_Application;
 import dbadapter.MovieDatabase;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

@@ -8,9 +8,6 @@ public class MoviesRating {
     private int value;
     private String optMsg;
 
-    public MoviesRating() {
-    }
-
     public MoviesRating(String username, int movieID, int ratingID, int value, String optMsg) {
         this.username = username;
         this.movieID = movieID;

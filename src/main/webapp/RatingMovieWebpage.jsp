@@ -20,17 +20,17 @@
 
 <h1>Registration</h1>
 
-<form action="Register?registerUser">
+    <form action="Register?registerUser">
 
-    <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
-    </div>
+        <div id="fields">
+            <b>username</b> : <input type="text"><br>
+            <b>age : </b><input type="number"><br>
+            <b>email : </b><input type="text"><br>
+        </div>
 
 
-    <button id="submit_btn" type="submit">Submit</button>
-</form>
+        <button id="submit_btn" type="submit">Submit</button>
+    </form>
 
 </body>
 

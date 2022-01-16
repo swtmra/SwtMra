@@ -5,9 +5,6 @@ public class UserDatabase {
     private String username;
     private int age;
 
-    public UserDatabase() {
-    }
-
     public UserDatabase(String email, String username, int age) {
         this.email = email;
         this.username = username;

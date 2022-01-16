@@ -12,8 +12,6 @@
     <body>
 
     <h1>Actions</h1>
-
-
         <a href="/moviesOverview">
             <button id="browse_btn" type="submit">Browse Movies</button>
         </a>
