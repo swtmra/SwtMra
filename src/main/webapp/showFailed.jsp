@@ -1,40 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
+<!DOCTYPE HTML>
 <head>
-
-    <title>Registration</title>
+    <title>Fail</title>
     <style>
-        #fields{
-            color:grey;
+        #msg{
+            color:darkred;
         }
 
-        #submit_btn{
-            color:green;
-        }
+
     </style>
-
-
 </head>
 
+
 <body>
+    <h1>Welcome to the Movie Rating App</h1>
 
-<h1>Registration</h1>
-
-<form action="register?registerUser">
-
-    <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
+    <div id="msg">
+        <b>${var} Failed</b>
     </div>
-
-
-    <button id="submit_btn" type="submit">Submit</button>
-</form>
 
 </body>
 
-</html>
 
 
 
