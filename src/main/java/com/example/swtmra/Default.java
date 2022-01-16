@@ -8,6 +8,10 @@ import javax.servlet.annotation.*;
 @WebServlet()
 public class Default extends HttpServlet {
 
+
+
+
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         request.getRequestDispatcher("default.jsp").forward(request, response);
