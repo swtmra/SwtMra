@@ -20,7 +20,7 @@
 
 <h1>Registration</h1>
 
-<form action="register?registerUser">
+<form action="registeredUserWebpage">
 
     <div id="fields">
         <b>username</b> : <input type="text"><br>
