@@ -1,7 +1,7 @@
 package application;
 
+import dbadapter.MovieDatabase;
 import datatypes.User;
-import dbadapter.Movie;
 import interfaces.PCmds;
 import interfaces.RUCmds;
 
@@ -40,8 +40,9 @@ public class MRA_Application implements PCmds, RUCmds {
         return false;
     }
 
+    //TODO can we use the MovieDatabase as Datatype here or should we use Movie
     @Override
-    public List<Movie> forwardBrowseMovies() {
+    public List<MovieDatabase> forwardBrowseMovies() {
         return null;
     }
 }

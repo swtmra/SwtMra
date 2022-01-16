@@ -1,4 +1,4 @@
-package dbadapter;
+package datatypes;
 
 import java.util.Date;
 

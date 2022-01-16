@@ -1,24 +1,17 @@
-package datatypes;
+package dbadapter;
 
-import dbadapter.MovieDatabase;
-
-import java.util.List;
-
-public class User {
+public class UserDatabase {
     private String email;
     private String username;
     private int age;
-    //TODO can we use the MovieDatabase as Datatype here or should we use Movie
-    private List<MovieDatabase> movieList;
 
-    public User() {
+    public UserDatabase() {
     }
 
-    public User(String email, String username, int age, List<MovieDatabase> movieList) {
+    public UserDatabase(String email, String username, int age) {
         this.email = email;
         this.username = username;
         this.age = age;
-        this.movieList = movieList;
     }
 
     public String getEmail() {
@@ -43,13 +36,5 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public List<MovieDatabase> getMovieList() {
-        return movieList;
-    }
-
-    public void setMovieList(List<MovieDatabase> movieList) {
-        this.movieList = movieList;
     }
 }
