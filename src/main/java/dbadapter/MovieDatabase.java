@@ -14,7 +14,7 @@ public class MovieDatabase {
 
     }
 
-    public MovieDatabase(int id, String title, String actors, String director, double avgRating, Date publishingDate) {
+    public MovieDatabase(int id, String title, String director, String actors, double avgRating, Date publishingDate) {
         this.id = id;
         this.title = title;
         this.actors = actors;

@@ -8,7 +8,7 @@
 
 
 <div>
-    <a href="/register">
+    <a href="register.jsp">
         <button id="reg_btn" type="submit">
             <b>Register</b>
         </button>
@@ -19,7 +19,7 @@
 
 
 <div >
-    <a href="/overview">
+    <a href="MoviesOverviewWebPage.jsp">
         <button id="browse_btn" type="submit">
             <b>Browse Movies</b>
         </button>
@@ -32,5 +32,3 @@
 </body>
 
 </head>
-
-
