@@ -1,6 +1,7 @@
 package application;
 
 import dbadapter.Configuration;
+import dbadapter.MDB_Adapter;
 import dbadapter.MovieDatabase;
 import datatypes.User;
 import dbadapter.UDB_Adapter;
@@ -28,7 +29,7 @@ public class MRA_Application implements PCmds, RUCmds {
 
     @Override
     public boolean movieExists(String title, String actor, String director, Date publishing_date) {
-        return false;
+        return new MDB_Adapter().movieExists(title,director,publishing_date);
     }
 
     @Override
