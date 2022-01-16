@@ -2,10 +2,10 @@ package interfaces;
 
 import datatypes.User;
 
-import java.util.Date;
+import java.sql.Date;
 
 public interface IMovieDatabase {
-    void addingMovie(String title, String director, String actor, Date publishingDate);
+    boolean addingMovie(String title, int director_id, int actor_id, Date publishingDate);
     void setAVG(double avgValue, int movieID);
 
     //TODO there'S no basis how to implement this method (it was wrongly built all along)
