@@ -14,16 +14,15 @@ import java.util.List;
 public class MRA_Application implements PCmds, RUCmds {
 
     @Override
-    public void registerUser(String email, int age, String username) {
-        List<String> errors = new ArrayList<>();
+    public boolean registerUser(String email, int age, String username) {
         boolean usernameExists = new MRA_Application().usernameExists(username);
-        if (usernameExists){
-            errors.add("Username is already used");
+
+        if (age < 18 && usernameExists) {
+            return false;
+        } else {
+            new UDB_Adapter().registeringUser(email,username,age);
+            return true;
         }
-        if(age < 18) {
-            errors.add("You have to be 18 years old or older to register");
-        }
-        new UDB_Adapter().registeringUser(email,username,age);
     }
 
     @Override

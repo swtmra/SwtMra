@@ -1,7 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML>
 <head>
-<title>Confirmation</title>
+    <meta http-equiv="refresh" content="1; url = /registeredUserWebPage">
+
+    <title>Confirmation</title>
 <style>
     #msg{
         color:green;
@@ -18,7 +20,7 @@
 
 
 <div id="msg">
-    <b>${var} confirmed</b>
+    <b>${var}</b>
 </div>
 
 

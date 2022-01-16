@@ -12,8 +12,6 @@ import java.util.List;
 @WebServlet(urlPatterns = {"/register"}, name="registerServlet")
 public class PersonGUI extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    List<String> errors ;
     int age;
     String username;
     String email;
@@ -21,10 +19,8 @@ public class PersonGUI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getRequestDispatcher("register.ftl").forward(request, response);
 
         if (request.getParameter("action").equals("registerUser")) {
-            errors = new ArrayList<>();
             age = Integer.parseInt(request.getParameter("age"));
             username = request.getParameter("uname");
             email = request.getParameter("email");
@@ -33,12 +29,13 @@ public class PersonGUI extends HttpServlet {
             request.setAttribute("email", email);
 
 
-            if(errors.isEmpty()) {
-                new MRA_Application().registerUser(email, age, username);
-                request.getRequestDispatcher("registered_user.jsp").forward(request, response);
-            }else {
-                request.setAttribute("errors", errors);
-                request.getRequestDispatcher("reg_fail.jsp").forward(request, response);
+            boolean registerationStatus = new MRA_Application().registerUser(email, age, username);
+            if (registerationStatus) {
+                request.setAttribute("var","Registeration success");
+                request.getRequestDispatcher("showConfirmed.jdp").forward(request, response);
+            } else {
+                request.setAttribute("var","Registeration failed. username or age isn't rigt!");
+                request.getRequestDispatcher("showFailed.jsp").forward(request, response);
             }
         }
     }
