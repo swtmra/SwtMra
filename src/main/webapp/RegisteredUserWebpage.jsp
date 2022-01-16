@@ -1,30 +1,28 @@
 <html>
-<head>
+    <head>
 
-    <title>Actions</title>
-    <style>
+        <title>Actions</title>
+        <style>
 
-    </style>
-
-
-</head>
-
-<body>
-
-<h1>Actions</h1>
+        </style>
 
 
-    <a href="/moviesOverview">
-        <button id="browse_btn" type="submit">Browse Movies</button>
-    </a>
+    </head>
+
+    <body>
+
+    <h1>Actions</h1>
 
 
-    <a href="/AddMovieWebPage?uname=${uname}&age=${age}&email=${email}&action=AddMovie">
-        <button id="add_btn" type="submit">Add Movie</button>
-    </a>
+        <a href="/moviesOverview">
+            <button id="browse_btn" type="submit">Browse Movies</button>
+        </a>
 
+        <a href="/AddMovieWebPage?uname=<%uname%>&age=${age}&email=${email}&action=AddMovie">
+            <button id="add_btn" type="submit">Add Movie</button>
+        </a>
 
-</body>
+    </body>
 
 </html>
 
