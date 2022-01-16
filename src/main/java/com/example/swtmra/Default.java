@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet()
+@WebServlet(urlPatterns = "/", name="DefaultServlet")
 public class Default extends HttpServlet {
 
 

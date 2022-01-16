@@ -7,9 +7,11 @@ import java.sql.*;
 import java.sql.Date;
 
 public class MDB_Adapter implements IMovieDatabase {
-    public boolean addingMovie(String title, int actor_id, int director_id, Date publishing_date) {
+
+    @Override
+    public boolean addingMovie(String title, String director, String actors, Date publishingDate) {
         String query =
-                "insert into movies(mid, title, actor_id, director_id, publishing_date) values(?,?,?,?,?)";
+                "insert into movies(title, director, actors, publishingDate) values(?,?,?,?)";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -18,9 +20,9 @@ public class MDB_Adapter implements IMovieDatabase {
 
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, title);
-                ps.setInt(2, actor_id);
-                ps.setInt(3, director_id);
-                ps.setDate(4, publishing_date);
+                ps.setString(2, director);
+                ps.setString(3, actors);
+                ps.setDate(3, publishingDate);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
@@ -34,12 +36,10 @@ public class MDB_Adapter implements IMovieDatabase {
         return true;
     }
 
-
-
-    // Will be done by the Application before forwarding the addRequest to DB.
-    public boolean movieExists(String title, int actor_id, int director_id, Date publishing_date) {
+    @Override
+    public boolean movieExists(String title, String director, Date publishingDate) {
         String query =
-                "select * from movies where title = ? and actor_id = ? and director_id = ? and publishing_date = ?";
+                "select * from movies where title = ? and director = ? and publishingDate = ?";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -48,9 +48,8 @@ public class MDB_Adapter implements IMovieDatabase {
 
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, title);
-                ps.setInt(2, actor_id);
-                ps.setInt(3, director_id);
-                ps.setDate(4, publishing_date);
+                ps.setString(2, director);
+                ps.setDate(3, publishingDate);
                 ResultSet rs = ps.executeQuery();
 
                 if(rs.next()) {
@@ -64,12 +63,6 @@ public class MDB_Adapter implements IMovieDatabase {
             e.printStackTrace();
         }
         return false;
-    }
-
-
-    @Override
-    public void addingMovie(String title, String director, String actor, java.util.Date publishingDate) {
-
     }
 
     @Override

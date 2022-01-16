@@ -1,18 +1,28 @@
 package application;
 
+import dbadapter.Configuration;
+import dbadapter.MDB_Adapter;
 import dbadapter.MovieDatabase;
 import datatypes.User;
+import dbadapter.UDB_Adapter;
 import interfaces.PCmds;
 import interfaces.RUCmds;
-
-import java.util.Date;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MRA_Application implements PCmds, RUCmds {
 
     @Override
-    public void registerUser(String email, int age, String username) {
+    public boolean registerUser(String email, int age, String username) {
+        boolean usernameExists = new MRA_Application().usernameExists(username);
 
+        if (age < 18 && usernameExists) {
+            return false;
+        } else {
+            new UDB_Adapter().registeringUser(email,username,age);
+            return true;
+        }
     }
 
     @Override
@@ -26,8 +36,8 @@ public class MRA_Application implements PCmds, RUCmds {
     }
 
     @Override
-    public boolean movieExists(String title, String director, Date publishingDate) {
-        return false;
+    public boolean movieExists(String title, String actor, String director, Date publishing_date) {
+        return new MDB_Adapter().movieExists(title,director,publishing_date);
     }
 
     @Override
