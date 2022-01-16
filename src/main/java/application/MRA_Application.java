@@ -6,7 +6,6 @@ import datatypes.User;
 import dbadapter.UDB_Adapter;
 import interfaces.PCmds;
 import interfaces.RUCmds;
-import java.sql.Date;
 import java.util.List;
 
 public class MRA_Application implements PCmds, RUCmds {

@@ -19,9 +19,9 @@ import java.sql.Date;
 
             if(request.getParameter("action").equals("AddMovie")) {
                 String title = request.getParameter("title");
-                String director = request.getParameter("title");
-                String actors = request.getParameter("title");
-                String publishingDate = request.getParameter("title");
+                String director = request.getParameter("director");
+                String actors = request.getParameter("actors");
+                String publishingDate = request.getParameter("publishingDate");
                 boolean add_res = new MRA_Application().forwardAddMovie(title, director, actors, publishingDate);
                 if (add_res) {
                     request.setAttribute("var", "The Movie was added !");

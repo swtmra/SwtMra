@@ -12,7 +12,7 @@ public class MDB_Adapter implements IMovieDatabase {
     @Override
     public boolean addingMovie(String title, String director, String actors, String publishingDate) {
         String query =
-                "insert into movies(title, director, actors, publishingDate) values(?,?,?,?)";
+                "insert into movies(title, director, actors, avgRating, publishingDate) values(?,?,?,?,?)";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -23,7 +23,8 @@ public class MDB_Adapter implements IMovieDatabase {
                 ps.setString(1, title);
                 ps.setString(2, director);
                 ps.setString(3, actors);
-                ps.setString(4, publishingDate);
+                ps.setDouble(4, 0);
+                ps.setString(5, publishingDate);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
