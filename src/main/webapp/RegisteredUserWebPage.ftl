@@ -20,17 +20,12 @@
 
 <h1>Registration</h1>
 
-<form action="Register?registerUser">
 
-    <div id="fields">
-        <b>username</b> : <input type="text"><br>
-        <b>age : </b><input type="number"><br>
-        <b>email : </b><input type="text"><br>
-    </div>
+        <button id="browse_btn" type="submit">Browse Movies</button>
+    <a href="moviesOverview?uname=${uname}&age=${age}&email=${email}">
+        <button id="add_btn" type="submit">Add Movie</button>
+    </a>
 
-
-    <button id="submit_btn" type="submit">Submit</button>
-</form>
 
 </body>
 
