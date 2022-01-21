@@ -1,7 +1,5 @@
 package dbadapter;
 
-import java.util.Date;
-
 public class MovieDatabase {
     private int id;
     private String title;

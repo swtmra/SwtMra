@@ -1,16 +1,20 @@
 package dbadapter;
 
+
 import interfaces.IMovieDatabase;
+
+
 import java.sql.*;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MDB_Adapter implements IMovieDatabase {
 
     @Override
-    public boolean addingMovie(String title, String director, String actors, String publishingDate) {
+    public boolean addingMovie(String title, String director, String actors, Date publishingDate) {
         String query =
-                "insert into moviesdatabase(title, director, actors, avgRating, publishingDate) values(?,?,?,?,?)";
+                "insert into movies(title, director, actors, publishingDate) values(?,?,?,?)";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -21,8 +25,7 @@ public class MDB_Adapter implements IMovieDatabase {
                 ps.setString(1, title);
                 ps.setString(2, director);
                 ps.setString(3, actors);
-                ps.setDouble(4, 0);
-                ps.setString(5, publishingDate);
+                ps.setDate(3, publishingDate);
                 ps.executeUpdate();
 
             } catch (SQLException e) {
@@ -37,10 +40,9 @@ public class MDB_Adapter implements IMovieDatabase {
     }
 
     @Override
-    public boolean movieExists(String title, String director, String publishingDate) throws ClassNotFoundException {
+    public boolean movieExists(String title, String director, Date publishingDate) {
         String query =
-                "select * from moviesdatabase where title = ? and director = ? and publishingDate = ?";
-        Class.forName("com.mysql.cj.jdbc.Driver");
+                "select * from movies where title = ? and director = ? and publishingDate = ?";
         try (Connection connection = DriverManager
                 .getConnection(
                         "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
@@ -50,7 +52,7 @@ public class MDB_Adapter implements IMovieDatabase {
             try (PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, title);
                 ps.setString(2, director);
-                ps.setString(3, publishingDate);
+                ps.setDate(3, publishingDate);
                 ResultSet rs = ps.executeQuery();
 
                 if(rs.next()) {
@@ -67,12 +69,10 @@ public class MDB_Adapter implements IMovieDatabase {
     }
 
 
-    public List<MovieDatabase> get_Movies() throws SQLException, ClassNotFoundException {
+    public List<MovieDatabase> get_Movies() throws SQLException {
         //SQL statements
-        String sqlGetMovies = "SELECT * FROM moviesdatabase ORDER BY avgRating DESC";
-        List<MovieDatabase> movies = new ArrayList<>();
+        String sqlGetMovies = "SELECT * FROM MoviesDatabase ORDER BY avgRating DESC";
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
         //Perform database Query
         try (Connection connection = DriverManager.getConnection("jdbc:" + Configuration.getType()
                         + "://" + Configuration.getServer() + ":"
@@ -80,19 +80,31 @@ public class MDB_Adapter implements IMovieDatabase {
                 Configuration.getUser(), Configuration.getPassword())) {
             try (PreparedStatement st = connection.prepareStatement(sqlGetMovies)) {
                 ResultSet rsMovies = st.executeQuery();
+                List<MovieDatabase> movies = new ArrayList<MovieDatabase>();
                 while (rsMovies.next()) {
                     MovieDatabase movie = new MovieDatabase(rsMovies.getInt("id"), rsMovies.getString("title"), rsMovies.getString("director"), rsMovies.getString("actors"), rsMovies.getDouble("avgRating"), rsMovies.getString("publishingDate"));
                     movies.add(movie);
+                    return movies;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return movies;
+        return null;
+    }
+
+    @Override
+    public boolean addingMovie(String title, String director, String actors, String publishingDate) {
+        return false;
     }
 
     @Override
     public void setAVG(double avgValue, int movieID) {
 
+    }
+
+    @Override
+    public boolean movieExists(String title, String director, String publishingDate) throws ClassNotFoundException {
+        return false;
     }
 }

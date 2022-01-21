@@ -4,7 +4,7 @@ import interfaces.IUserDatabase;
 
 import java.sql.*;
 
-public class UDB_Adapter implements IUserDatabase {
+public class UDB_Adapter implements IUserDatabase  {
     @Override
     public boolean registeringUser(String email, String username, int age) throws ClassNotFoundException {
         String query =

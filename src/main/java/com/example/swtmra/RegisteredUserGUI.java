@@ -5,13 +5,15 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/registeredUserWebpage"}, name = "regisetredServlet")
+@WebServlet(urlPatterns = {"/registeredUser"}, name = "regisetredServlet")
 public class RegisteredUserGUI extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.setAttribute("uname", request.getParameter("uname"));
-        request.getRequestDispatcher("RegisteredUserWebpage.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }
